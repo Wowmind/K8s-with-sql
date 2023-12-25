@@ -1,4 +1,4 @@
 
 variable "gke_master_ipv4_cidr_block" {
-default        = "10.1.0.0/21
+default        = "10.2.0.0/21
   }
