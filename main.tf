@@ -33,7 +33,7 @@ ip_allocation_policy {
 resource "google_compute_global_address" "private-ip-peering" {
   name          = "google-managed-services-custom"
   purpose       = "VPC_PEERING"
-  address_type  = "INTERNAL"
+  address_type  = var.address_type
   prefix_length = 24
   network       = google_compute_network.vpc.id
 }
