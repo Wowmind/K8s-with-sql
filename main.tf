@@ -45,3 +45,9 @@ resource "google_service_networking_connection" "private-vpc-connection" {
     google_compute_global_address.private-ip-peering.name
   ]
 }
+
+resource "google_project_service" "secret_manager" {
+  project = var.project_id
+  service = "secretmanager.googleapis.com"
+}
+
