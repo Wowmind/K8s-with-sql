@@ -43,3 +43,9 @@ variable "mysql_availability_type" {
   type = string
   default = "REGIONAL"
 }
+
+variable "address_type" {
+type     = string
+default  = "INTERNAL"
+
+}
