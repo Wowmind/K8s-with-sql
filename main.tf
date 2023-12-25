@@ -9,5 +9,12 @@ private_cluster_config {
     enable_private_nodes    = true
     master_ipv4_cidr_block  = var.gke_master_ipv4_cidr_block
   }
+master_authorized_networks_config {
+    dynamic "cidr_blocks" {
+            cidr_block = cidr_blocks.value
+        }
+    }
+   
+
 
 }
