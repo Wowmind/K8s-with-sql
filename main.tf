@@ -13,6 +13,9 @@ master_authorized_networks_config {
     dynamic "cidr_blocks" {
             cidr_block = cidr_blocks.value
         }
+// Enable auto-pilot
+enable_autopilot = true
+
     }
    
 
