@@ -30,24 +30,9 @@ ip_allocation_policy {
 }
 
 # Create an sql instance
-resource "google_compute_global_address" "private-ip-peering" {
-  name          = "google-managed-services-custom"
-  purpose       = "VPC_PEERING"
-  address_type  = var.address_type
-  prefix_length = 24
-  network       = google_compute_network.vpc.id
-}
 
-resource "google_service_networking_connection" "private-vpc-connection" {
-  network = google_compute_network.vpc.id
-  service = "servicenetworking.googleapis.com"
-  reserved_peering_ranges = [
-    google_compute_global_address.private-ip-peering.name
-  ]
+resource "random_string" "db_name_suffix" {
+  length  = 4
+  special = false
+  upper   = false
 }
-
-resource "google_project_service" "secret_manager" {
-  project = var.project_id
-  service = "secretmanager.googleapis.com"
-}
-
