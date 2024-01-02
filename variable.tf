@@ -44,8 +44,3 @@ variable "mysql_availability_type" {
   default = "REGIONAL"
 }
 
-variable "address_type" {
-type     = string
-default  = "INTERNAL"
-
-}
