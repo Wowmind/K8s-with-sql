@@ -74,3 +74,17 @@ resource "google_sql_database_instance" "mysql" {
     google_service_networking_connection.private-vpc-connection
   ]
 }
+data "google_secret_manager_secret_version" "wordpress-admin-user-password" {
+  secret = "wordpress-admin-user-password"
+}
+
+resource "google_sql_database" "wordpress" {
+  name     = "wordpress"
+  instance = google_sql_database_instance.mysql.name
+}
+
+resource "google_sql_user" "wordpress" {
+  name = "wordpress"
+  instance = google_sql_database_instance.mysql.name
+  password = data.google_secret_manager_secret_version.wordpress-admin-user-password.secret_data
+}
