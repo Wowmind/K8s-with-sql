@@ -17,7 +17,7 @@ master_authorized_networks_config {
 // Enable auto-pilot
 enable_autopilot = true
 
-Configuration of cluster IP allocation for VPC-native clusters
+#Configuration of cluster IP allocation for VPC-native clusters
 ip_allocation_policy {
     cluster_secondary_range_name  = "pods"
     services_secondary_range_name = "services"
@@ -30,7 +30,7 @@ ip_allocation_policy {
 }
 
 # Create an sql instance
-esource "random_string" "db_name_suffix" {
+resource "random_string" "db_name_suffix" {
   length  = 4
   special = false
   upper   = false
