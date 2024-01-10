@@ -16,8 +16,7 @@ variable "zone" {
 variable "mysql_availability_type" {
   type = string
   default = "REGIONAL"
-}default        = "10.2.0.0/21"
-  }
+}
 
 variable "mysql_location_preference" {
   type = string
